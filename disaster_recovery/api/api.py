@@ -464,9 +464,7 @@ class Backup(object):
         if search:
             search = {"match": [{"_all": search}, ], }
 
-        backups = self.client.backups.list_all(limit=limit,
-                                               offset=offset,
-                                               search=search)
+        backups = self.client.backups.list(limit=limit, offset=offset, search=search)
 
         if json:
             return backups
